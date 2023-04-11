@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Card } from "./components/Card";
+import { Button } from "./components/Button";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+        <img
+          src="https://cdn3.iconfinder.com/data/icons/valentine2/100/Valentine_love-11-512.png"
+          alt="wine glass"
+          id="app-logo"
+        />
+        <h1>PHO</h1>
+        <h3>WithYou</h3>
+        <Button buttonName="Log In" />
+        <Button buttonName="Sign Up" />
+      </div>
     </div>
   );
 }
