@@ -1,5 +1,5 @@
 .App {
-  width: auto;
+
 }
 
 #app-logo {
@@ -10,3 +10,41 @@
   display: flex;
   align-items: center;
 }
+
+h1 {
+  color: #FF5353;
+  font-family: 'Great Sailor';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+h3 {
+  font-family: 'Great Sailor';
+  font-style: normal;
+  color: #2E6953;
+}
+
+/* 
+position: absolute;
+width: 183px;
+height: 46px;
+
+font-family: 'Great Sailor';
+font-style: normal;
+font-weight: 400;
+font-size: 40px;
+line-height: 40px;
+text-align: center;
+
+color: #FF5353;
+
+border: 0.5px solid rgba(0, 0, 0, 0.25); */
+
+/* 766595 1 */
+
+/* position: absolute;
+width: 57px;
+height: 57px;
+
+background: url(766595.png); */
