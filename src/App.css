@@ -1,7 +1,3 @@
-.App {
-
-}
-
 #app-logo {
   width: 5%;
 }
@@ -9,22 +5,31 @@
 .header {
   display: flex;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 h1 {
-  color: #FF5353;
-  font-family: 'Great Sailor';
+  color: #ff5353;
+  font-family: "Great Sailor";
   font-style: normal;
   font-weight: 400;
   font-size: 40px;
+  float: left;
+  padding-bottom: 0px;
 }
 
 h3 {
-  font-family: 'Great Sailor';
+  font-family: "Great Sailor";
   font-style: normal;
-  color: #2E6953;
+  color: #2e6953;
+  float: right;
+  padding-bottom: 0px;
 }
 
+.titleName {
+  display: flex;
+  align-items: flex-end;
+}
 /* 
 position: absolute;
 width: 183px;

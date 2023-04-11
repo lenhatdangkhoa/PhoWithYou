@@ -1,6 +1,8 @@
 import "./App.css";
 import { Card } from "./components/Card";
 import { Button } from "./components/Button";
+import { Footer } from "./components/Footer";
+
 function App() {
   return (
     <div className="App">
@@ -10,11 +12,24 @@ function App() {
           alt="wine glass"
           id="app-logo"
         />
-        <h1>PHO</h1>
-        <h3>WithYou</h3>
-        <Button buttonName="Log In" />
-        <Button buttonName="Sign Up" />
+        <div className="titleName">
+          <h1>PHO</h1>
+          <h3>WithYou</h3>
+        </div>
+        <div>
+          <Button buttonName="Log In" />
+          <Button buttonName="Sign Up" />
+        </div>
       </div>
+      <div className="body">
+        <h1>"The best dating app ever" - Dylan Pettigrew</h1>
+        <br />
+        <h2>Select your match</h2>
+        <Card>hello</Card>
+        <h2>and connect!</h2>
+        <Card>hello</Card>
+      </div>
+      <Footer />
     </div>
   );
 }
