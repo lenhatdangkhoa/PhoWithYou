@@ -1,7 +1,7 @@
-.Footer{
-    background-color: #FFAEAE;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
+.Footer {
+  background-color: #ffaeae;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
 }

@@ -1,10 +1,9 @@
 /* Log In Box */
 button {
-   
-    width: 66px;
-    height: 27px;
-    
-    background: #01DE8A;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 10px;
+  width: 66px;
+  height: 27px;
+  background: #01de8a;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  border: 0px;
 }

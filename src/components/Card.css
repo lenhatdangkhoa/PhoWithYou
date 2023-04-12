@@ -1,15 +1,10 @@
 .Card {
- /* Group 8 */
-width: 485px;
-height: 106px;
-
-background: linear-gradient(180deg, #ad7474 0%, rgba(196, 196, 196, 0) 100%);
-filter: drop-shadow(0px 4px 4px rgba(0, 255, 119, 0.75));
-
-border-radius: 81.5px;
+  width: 485px;
+  height: 106px;
+  background: linear-gradient(180deg, #e1b796 0%, rgba(196, 196, 196, 0) 100%);
+  filter: drop-shadow(0px 4px 4px rgba(0, 255, 119, 0.75));
+  border-radius: 81.5px;
 }
-
-
 
 /* Ellipse 3 */
 
@@ -36,7 +31,6 @@ height: 40px;
 
 background: #A93030; */
 
-
 /* Southern, Beard, isSpiderman */
 
 /* 
@@ -50,8 +44,6 @@ font-size: 15px;
 line-height: 15px;
 
 color: #14855A; */
-
-
 
 /* ✘ */
 
@@ -67,8 +59,6 @@ line-height: 20px;
 text-align: center;
 
 color: #FF5353; */
-
-
 
 /* ✓ */
 
@@ -86,7 +76,6 @@ text-align: center;
 color: #32FFB1;
  */
 
-
 /* Gage Roney */
 /* 
 
@@ -103,4 +92,3 @@ color: #FF5353;
 
 text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
  */
-
