@@ -16,8 +16,12 @@ function App() {
           <h1>PHO</h1>
           <h3>WithYou</h3>
         </div>
+       
         <div>
-          <Button buttonName="Log In" />
+          <a href="https://react.school" target="_blank">
+            <Button buttonName="Log In"/>
+          </a>
+      
           <Button buttonName="Sign Up" />
         </div>
       </div>
