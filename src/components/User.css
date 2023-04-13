@@ -1,6 +1,43 @@
-img {
+.Card > img {
   width: 15%;
   height: auto;
   border-radius: 50%;
-  align-self: flex-start;
+  align-self: center;
+  margin-left: 3%;
+}
+
+.nameAndDescription {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding-left: 3%;
+}
+
+.nameAndDescription > h1 {
+  margin: 0;
+}
+.nameAndDescription > h2 {
+  margin: 0;
+}
+
+.marks {
+  display: flex;
+  margin-left: auto;
+  column-gap: 5%;
+}
+.YesMark {
+  background-color: green;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  align-self: center;
+  text-align: center;
+}
+.NoMark {
+  background-color: red;
+  border-radius: 50%;
+  width: 75px;
+  height: 75px;
+  align-self: center;
+  text-align: center;
 }
