@@ -2,6 +2,7 @@ import "./App.css";
 import { Card } from "./components/Card";
 import { Button } from "./components/Button";
 import { Footer } from "./components/Footer";
+import { User } from "./components/User";
 
 function App() {
   return (
@@ -26,9 +27,9 @@ function App() {
         </div>
       </div>
       <div className="body">
-        <h1>"The best dating app ever" - Dylan Pettigrew</h1>
+        <h1>"The best dating app ever" - Mai Kuchi</h1>
         <h2>Select your match</h2>
-        <Card></Card>
+        <User />
         <h2>and connect!</h2>
         <Card></Card>
       </div>
