@@ -1,18 +1,18 @@
-.formLogin{
+.formSignUp{
     display: flex;
     flex-direction: column;
     justify-content:space-between;
     align-items: center;
 }
 
-.formHeader{
+.formHeaderSignUp{
     font-family: "Great Sailor";
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
 }
 
-.signUpButton{
+.signInButton{
     position: fixed;
     right: 0px;
     margin-right: 4%;
