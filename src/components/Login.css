@@ -18,3 +18,18 @@
     margin-right: 4%;
     margin-top: 1%;
 }
+
+.emailBox {
+    border: 1px solid gray;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.passwordBox{
+    margin-top: 2%;
+    border: 1px solid gray;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
