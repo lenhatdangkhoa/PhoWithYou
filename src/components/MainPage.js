@@ -1,5 +1,6 @@
 import React from "react";
 import { User } from "./User";
+import { Link } from "react-router-dom";
 import "./MainPage.css";
 
 export function MainPage(props) {
@@ -12,7 +13,9 @@ export function MainPage(props) {
         />
         <h1>Potential Matches</h1>
       </div>
-      <h3>Edit Profile</h3>
+      <Link to="/edit-profile">
+        <h3>Edit Profile</h3>
+      </Link>
       <div className="userList">
         <User name="user1" description="none"></User>
         <User name="user1" description="none"></User>

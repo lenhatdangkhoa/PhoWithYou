@@ -1,11 +1,12 @@
 .heading > img {
   border-radius: 50%;
   width: 10%;
+  margin-left: 2%;
 }
 
-.MainPage > h3 {
+.MainPage h3 {
   text-decoration: underline;
-  margin-left: 2%;
+  margin-left: 4%;
 }
 .heading > h1 {
   margin-right: 35%;
