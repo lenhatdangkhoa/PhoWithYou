@@ -1,9 +1,27 @@
-.MainPage > img {
+.heading > img {
   border-radius: 50%;
   width: 10%;
 }
 
-.MainPage > h1 {
+.MainPage > h3 {
   text-decoration: underline;
-  color: green;
+  margin-left: 2%;
+}
+.heading > h1 {
+  margin-right: 35%;
+  font-family: "Great Sailor", "Times New Roman", Times, serif;
+  color: rgb(21, 97, 21);
+  font-size: 50px;
+}
+.heading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.userList {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  row-gap: 15px;
 }
