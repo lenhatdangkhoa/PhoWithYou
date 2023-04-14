@@ -14,6 +14,16 @@ export function Login(props) {
 
     if (email === 'gmr92094@uga.edu' && password === 'password123') {
       setIsLoggedIn(true);
+      console.log("dreamy");
+    }
+
+    if (isLoggedIn) {
+      return <Link to="/main-page">
+                <Button buttonName="Sign In" />
+            </Link>;
+    }
+    else {
+
     }
   }
 
@@ -56,10 +66,12 @@ export function Login(props) {
       </div>
 
       <div>
-        <Link to="/main-page">
+        <Link to="/signUp">
           <Button buttonName="Sign In" />
         </Link>
       </div>
     </form>
+      )}
+      </div>
   );
 }
