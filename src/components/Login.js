@@ -12,13 +12,11 @@ export function Login(props) {
 
   function handleLogin(e) {
     e.preventDefault();
-    console.log("test");
     if (
       document.getElementById("email").value === "gmr92094@uga.edu" &&
       document.getElementById("password").value === "password123"
     ) {
       setIsLoggedIn(true);
-      console.log("dreamy");
     }
   }
 
