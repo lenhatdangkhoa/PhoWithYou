@@ -28,10 +28,7 @@ export function Login(props) {
   }
 
   return (
-    <div>
-      {isLoggedIn ? (
-        <h1>Welcome to PhoWithYou</h1>
-      ) : (
+
     <form onSubmit={handleLogin} className="formLogin">
       <div className="signUpButton">
         <p>Don't have an account?</p>
@@ -66,12 +63,9 @@ export function Login(props) {
       </div>
 
       <div>
-        <Link to="/signUp">
           <Button buttonName="Sign In" />
-        </Link>
+        
       </div>
     </form>
-      )}
-      </div>
   );
 }
