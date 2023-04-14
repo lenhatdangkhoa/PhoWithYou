@@ -15,7 +15,11 @@ export function EditProfile(props) {
   }
 
   return (
-    <div className="EditProfile">
+    <div className="editProfile">
+      <div className="formHeader">
+        <h2>Edit Profile</h2>
+      </div>
+
       <form onSubmit={handleSubmit} className="editForm">
         <label>
           Name:
@@ -25,6 +29,7 @@ export function EditProfile(props) {
             onChange={(event) => setName(event.target.value)}
           />
         </label>
+        <br />
         <label>
           Personality:
           <input
@@ -33,6 +38,7 @@ export function EditProfile(props) {
             onChange={(event) => setPersonality(event.target.value)}
           />
         </label>
+        <br />
         <label>
           Bio:
           <textarea
@@ -40,6 +46,7 @@ export function EditProfile(props) {
             onChange={(event) => setBio(event.target.value)}
           />
         </label>
+        <br />
       </form>
     </div>
   );
