@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "./Button";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
 import { MainPage } from "./MainPage";
 
@@ -12,6 +12,7 @@ export function Login(props) {
 
   function handleLogin(e) {
     e.preventDefault();
+
     if (
       document.getElementById("email").value === "gmr92094@uga.edu" &&
       document.getElementById("password").value === "password123"
@@ -21,7 +22,7 @@ export function Login(props) {
   }
 
   if (isLoggedIn) {
-    return <MainPage />;
+    return <Navigate to="/main-page" />;
   } else {
     return (
       <div>
