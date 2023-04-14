@@ -7,10 +7,22 @@ import "./Login.css";
 export function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const isLoggedIn = false;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  function handleLogin(e) {
+    e.preventDefault();
+
+    if (email === 'gmr92094@uga.edu' && password === 'password123') {
+      setIsLoggedIn(true);
+    }
+  }
 
   return (
-    <form className="formLogin">
+    <div>
+      {isLoggedIn ? (
+        <h1>Welcome to PhoWithYou</h1>
+      ) : (
+    <form onSubmit={handleLogin} className="formLogin">
       <div className="signUpButton">
         <p>Don't have an account?</p>
         <Link to="/signup">
@@ -43,9 +55,11 @@ export function Login(props) {
 
         <div>
         <Link to="/">
-          <Button buttonName="Sign In" />
+          <Button type="submit" buttonName="Sign In" />
         </Link>
         </div>
       </form>
+      )}
+      </div>
   );
 }
