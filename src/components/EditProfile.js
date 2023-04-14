@@ -18,7 +18,11 @@ export function EditProfile(props) {
     }
 
     return (
-        <div>
+        <div className="editProfile">
+            <div className="formHeader">
+                <h2>Edit Profile</h2>
+            </div>
+            
         <form onSubmit={handleSubmit} className="editForm">
             <label>
                 Name:

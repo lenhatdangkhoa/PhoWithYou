@@ -5,3 +5,11 @@
     margin-top: 50px;
 }
 
+.formHeader{
+    font-family: "Great Sailor";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    text-decoration: underline;
+}
+
