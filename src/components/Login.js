@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "./Button";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import "./Login.css";
 import { MainPage } from "./MainPage";
 
@@ -22,7 +22,7 @@ export function Login(props) {
   }
 
   if (isLoggedIn) {
-    return <Link to="/main-page"></Link>;
+    return <Navigate to="/main-page" />;
   } else {
     return (
       <div>
