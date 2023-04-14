@@ -2,3 +2,8 @@
   border-radius: 50%;
   width: 10%;
 }
+
+.MainPage > h1 {
+  text-decoration: underline;
+  color: green;
+}
