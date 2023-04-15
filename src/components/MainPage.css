@@ -10,9 +10,10 @@
 }
 .heading > h1 {
   margin-right: 35%;
-  font-family: "Great Sailor", "Times New Roman", Times, serif;
+  font-family: "Dongle", "Times New Roman", Times, serif;
   color: rgb(21, 97, 21);
-  font-size: 50px;
+  font-size: 6em;
+  margin-bottom: -1%;
 }
 .heading {
   display: flex;

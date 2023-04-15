@@ -1,5 +1,5 @@
 .Card > img {
-  width: 15%;
+  width: 5em;
   height: auto;
   border-radius: 50%;
   align-self: center;
@@ -28,16 +28,16 @@
 .YesMark {
   background-color: green;
   border-radius: 50%;
-  width: 75px;
-  height: 75px;
+  width: 4em;
+  height: 4em;
   align-self: center;
   text-align: center;
 }
 .NoMark {
   background-color: red;
   border-radius: 50%;
-  width: 75px;
-  height: 75px;
+  width: 4em;
+  height: 4em;
   align-self: center;
   text-align: center;
 }

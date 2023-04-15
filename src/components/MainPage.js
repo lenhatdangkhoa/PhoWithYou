@@ -1,9 +1,20 @@
 import React from "react";
+import { useState } from "react";
 import { User } from "./User";
 import { Link } from "react-router-dom";
 import "./MainPage.css";
 
 export function MainPage(props) {
+  const [users, setUsers] = useState([
+    { name: "user1", description: "none" },
+    { name: "user2", description: "none" },
+    { name: "user3", description: "none" },
+    { name: "user4", description: "none" },
+    { name: "user5", description: "none" },
+  ]);
+  function handleDelete(username) {
+    setUsers(users.filter((user) => user.name !== username));
+  }
   return (
     <div className="MainPage">
       <div className="heading">
@@ -17,11 +28,13 @@ export function MainPage(props) {
         <h3>Edit Profile</h3>
       </Link>
       <div className="userList">
-        <User name="user1" description="none"></User>
-        <User name="user1" description="none"></User>
-        <User name="user1" description="none"></User>
-        <User name="user1" description="none"></User>
-        <User name="user1" description="none"></User>
+        {users.map((user) => (
+          <User
+            name={user.name}
+            description={user.description}
+            onDelete={() => handleDelete(user.name)}
+          />
+        ))}
       </div>
     </div>
   );

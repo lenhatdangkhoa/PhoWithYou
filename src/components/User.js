@@ -15,10 +15,10 @@ export function User(props) {
       </div>
       <div className="marks">
         <div className="YesMark">
-          <h1>✓</h1>
+          <h2>✓</h2>
         </div>
-        <div className="NoMark">
-          <h1>✕</h1>
+        <div className="NoMark" onClick={() => props.onDelete(props.name)}>
+          <h2>✕</h2>
         </div>
       </div>
     </Card>
