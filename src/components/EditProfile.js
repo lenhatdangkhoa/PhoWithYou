@@ -1,9 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "./Button";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./EditProfile.css";
-import { MainPage } from "./MainPage";
 
 export function EditProfile(props) {
   const [name, setName] = useState("");
@@ -13,7 +12,6 @@ export function EditProfile(props) {
   function handleSubmit(event) {
     event.preventDefault();
   }
-
   return (
     <div className="EditProfile">
       <div className="formHeader">

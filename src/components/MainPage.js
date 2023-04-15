@@ -15,6 +15,7 @@ export function MainPage(props) {
   function handleDelete(username) {
     setUsers(users.filter((user) => user.name !== username));
   }
+
   return (
     <div className="MainPage">
       <div className="heading">
