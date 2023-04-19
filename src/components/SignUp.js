@@ -10,6 +10,11 @@ export function SignUp(props) {
 
   return (
     <form className="formSignUp">
+      <div className="HomeButton">
+        <Link to="/">
+          <Button buttonName="Back to Landing..." />
+        </Link>
+      </div>
       <div className="signInButton">
         <p>Already have an account?</p>
         <p>Click here to sign in</p>

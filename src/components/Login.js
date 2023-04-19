@@ -27,6 +27,11 @@ export function Login(props) {
     return (
       <div>
         <form onSubmit={handleLogin} className="formLogin">
+          <div className="HomeButton">
+            <Link to="/">
+              <Button buttonName="Back to Landing..." />
+            </Link>
+          </div>
           <div className="signUpButton">
             <p>Don't have an account?</p>
             <Link to="/signup">

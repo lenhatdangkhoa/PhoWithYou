@@ -19,6 +19,13 @@
     margin-top: 1%;
 }
 
+.HomeButton{
+    position: fixed;
+    left: 0px;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
 .emailBox {
     border: 1px solid gray;
     padding: 10px;
