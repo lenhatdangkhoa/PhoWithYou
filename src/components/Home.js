@@ -2,7 +2,6 @@ import React from "react";
 import { Button } from "./Button";
 import { Footer } from "./Footer";
 import { User } from "./User";
-import { Login } from "./Login";
 import "./Home.css";
 import { Link } from "react-router-dom";
 
