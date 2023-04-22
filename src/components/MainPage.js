@@ -57,7 +57,7 @@ export function MainPage(props) {
         <div className="formHeader">
           <h2>Edit Profile</h2>
         </div>
-        <img
+        <img 
           src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
           alt="userImage"
         />
@@ -90,9 +90,12 @@ export function MainPage(props) {
               onChange={(event) => setBio(event.target.value)}
             />
           </label>
-          <br />
+          <div className="doneButton">
+            <Button buttonName="Done" onClick={() => handleClick()} />
+          </div>
+          
         </form>
-        <Button buttonName="Done" onClick={() => handleClick()} />
+        
       </div>
     );
   }

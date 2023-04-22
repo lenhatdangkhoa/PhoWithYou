@@ -3,7 +3,13 @@
   width: 10%;
   margin-left: 2%;
 }
-
+.MainPage{
+  background-image: url(https://images.hdqwalls.com/download/heart-shape-balloons-in-sky-zt-2560x1440.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
 .MainPage h3 {
   text-decoration: underline;
   margin-left: 4%;
@@ -11,7 +17,7 @@
 .heading > h1 {
   margin-right: 35%;
   font-family: "Dongle", "Times New Roman", Times, serif;
-  color: rgb(21, 97, 21);
+  color: rgb(255, 255, 255);
   font-size: 6em;
   margin-bottom: -1%;
 }
