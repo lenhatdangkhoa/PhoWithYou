@@ -25,22 +25,27 @@ export function Login(props) {
     return <Navigate to="/main-page" />;
   } else {
     return (
-      <div>
+      <div className="logs">
         <form onSubmit={handleLogin} className="formLogin">
+          <div className="HomeButton">
+            <Link to="/">
+              <Button buttonName="Back to Landing..." />
+            </Link>
+          </div>
           <div className="signUpButton">
             <p>Don't have an account?</p>
             <Link to="/signup">
               <Button buttonName="Sign Up" />
             </Link>
           </div>
-          <div className="formHeader">
+          <div className="formHead">
             <h1>Login</h1>
           </div>
           <div>
             <label>
-              Email:
               <input
                 type="text"
+                placeholder="Enter your email..." 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="emailBox"
@@ -50,9 +55,9 @@ export function Login(props) {
           </div>
           <div>
             <label>
-              Password:
               <input
                 type="text"
+                placeholder="Enter your password..." 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="passwordBox"
@@ -60,8 +65,7 @@ export function Login(props) {
               />
             </label>
           </div>
-
-          <div>
+          <div className="signup">
             <Button buttonName="Sign In" />
           </div>
         </form>

@@ -3,7 +3,8 @@ import { Home } from "./components/Home";
 import { SignUp } from "./components/SignUp";
 import { Login } from "./components/Login";
 import { MainPage } from "./components/MainPage";
-import { Route, Routes, Link } from "react-router-dom";
+import { EditProfile } from "./components/EditProfile";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (

@@ -5,11 +5,26 @@
     align-items: center;
 }
 
+p {
+    color: azure;
+    text-shadow: 0 3px 5px rgb(53, 0, 47);
+}
+.sgn{
+    min-height: 100vh;
+    background-image: url(
+        https://prisoliveras.com/wp-content/uploads/amazing-sunset-beach-high-defination-widescreen-background-wallpaper-image-free.jpg
+    );
+    background-size: cover;
+    background-position: center;
+}
+
 .formHeaderSignUp{
     font-family: "Great Sailor";
     font-style: normal;
     font-weight: 400;
     font-size: 40px;
+    color: azure;
+    text-shadow: 0 3px 5px rgb(53, 0, 47);
 }
 
 .signInButton{
@@ -17,6 +32,13 @@
     right: 0px;
     margin-right: 4%;
     margin-top: 1%;
+}
+
+.HomeButton{
+    position: fixed;
+    left: 0px;
+    margin-left: 2%;
+    margin-top: 2%;
 }
 
 .emailBox {
@@ -27,9 +49,13 @@
 }
 
 .passwordBox{
-    margin-top: 2%;
+    margin-top: 10px;
     border: 1px solid gray;
     padding: 10px;
     font-size: 16px;
     border-radius: 5px;
+}
+
+.signup{
+    margin-top: 10px;
 }

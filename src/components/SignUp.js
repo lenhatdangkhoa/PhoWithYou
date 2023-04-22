@@ -8,40 +8,70 @@ export function SignUp(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  async function handleClick() {
+    try {
+      const response = await fetch("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, password: password }),
+      });
+      if (!response.ok) {
+        console.log("error");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
-    <form className="formSignUp">
-      <div className="signInButton">
-        <p>Already have an account?</p>
-        <p>Click here to sign in</p>
-        <Link to="/login">
-          <Button buttonName="Sign In" />
-        </Link>
-      </div>
-      <div className="formHeaderSignUp">
-        <h1>Sign Up</h1>
-      </div>
+    <div className="sgn">
+      <form className="formSignUp">
+        <div className="HomeButton">
+          <Link to="/">
+            <Button buttonName="Back to Landing..." />
+          </Link>
+        </div>
+        <div className="signInButton">
+          <p>Already have an account?</p>
+          <p>Click here to sign in</p>
+          <Link to="/login">
+            <Button buttonName="Sign In" />
+          </Link>
+        </div>
+        <div className="formHeaderSignUp">
+          <h1>Sign Up</h1>
+        </div>
         <div>
-          <label>Email:
+          <label>
             <input
               type="text"
+              placeholder="Enter your email..."
               value={email}
-              onChange={(e) => setEmail(e.target.value)} />
+              onChange={(e) => setEmail(e.target.value)}
+              className="emailBox"
+            />
           </label>
         </div>
         <div>
-          <label>Password:
+          <label>
             <input
               type="text"
+              placeholder="Create a password..."
               value={password}
-              onChange={(e) => setPassword(e.target.value)} />
+              onChange={(e) => setPassword(e.target.value)}
+              className="passwordBox"
+            />
           </label>
         </div>
 
-        <div>
-        <Link to="/">
-          <Button buttonName="Sign Up" />
-        </Link>
+        <div className="signup">
+          <Link to="/">
+            <Button buttonName="Sign Up" onClick={() => handleClick()} />
+          </Link>
         </div>
       </form>
+    </div>
   );
 }
