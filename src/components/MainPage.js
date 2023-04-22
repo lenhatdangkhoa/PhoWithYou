@@ -12,6 +12,7 @@ export function MainPage(props) {
     { name: "user4", description: "none" },
     { name: "user5", description: "none" },
   ]);
+  const [userId, setUserId] = useState(null);
   const [name, setName] = useState("");
   const [personality, setPersonality] = useState("");
   const [bio, setBio] = useState("");
@@ -19,7 +20,7 @@ export function MainPage(props) {
   function handleDelete(username) {
     setUsers(users.filter((user) => user.name !== username));
   }
-
+  const token = localStorage.getItem("token");
   if (!edit) {
     return (
       <div className="MainPage">
@@ -46,9 +47,16 @@ export function MainPage(props) {
     function handleSubmit(event) {
       event.preventDefault();
     }
-    function handleClick() {
-      const newUser = { name: name, description: personality };
-      setUsers([...users, newUser]);
+
+    async function handleClick() {
+      const response = await fetch(`/users/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ name, personality }),
+      });
       setEdit(false);
     }
     return (
