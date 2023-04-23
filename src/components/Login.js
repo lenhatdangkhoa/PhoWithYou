@@ -12,6 +12,10 @@ export function Login(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [userImage, setUserImage] = useState(
+    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+  );
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -25,18 +29,19 @@ export function Login(props) {
       });
       const data = await response.json();
       setUserId(data.user.id);
+      setIsAdmin(data.user.isAdmin);
+      setUserImage(data.user.image);
       localStorage.setItem("token", data.token);
       if (response.ok) setIsLoggedIn(true);
-      console.log(isLoggedIn);
     } catch (err) {
       console.log(err);
     }
   }
 
   if (isLoggedIn) {
-    console.log(userId);
-    //navigate("/main-page", { state: { userId } });
-    return <MainPage userId={userId} />;
+    return (
+      <MainPage userId={userId} isAdmin={isAdmin} currentImage={userImage} />
+    );
   } else {
     return (
       <div className="logs">
