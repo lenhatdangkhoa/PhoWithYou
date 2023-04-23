@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { MainPage } from "./MainPage";
 
+// khoale -> password: 123
 export function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,8 +24,8 @@ export function Login(props) {
         body: JSON.stringify({ email: email, password: password }),
       });
       const data = await response.json();
-      localStorage.setItem("token", data.token);
       setUserId(data.user.id);
+      localStorage.setItem("token", data.token);
       if (response.ok) setIsLoggedIn(true);
       console.log(isLoggedIn);
     } catch (err) {
@@ -33,7 +34,9 @@ export function Login(props) {
   }
 
   if (isLoggedIn) {
-    return navigate("/main-page", { state: { userId } });
+    console.log(userId);
+    //navigate("/main-page", { state: { userId } });
+    return <MainPage userId={userId} />;
   } else {
     return (
       <div className="logs">

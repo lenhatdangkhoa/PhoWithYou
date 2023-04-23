@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ path: "./phowithyou/.env" });
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const express = require("express");
@@ -44,16 +44,26 @@ app.post("/login", async (req, res) => {
     console.log(err);
   }
 });
-app.put("users/:id", async (req, res) => {
+app.put("/users/:id", async (req, res) => {
+  console.log(req.body);
   const userId = req.params.id;
   const { name, personality } = req.body;
   try {
     const user = await User.findOneAndUpdate(
       { _id: userId },
-      { name: name },
-      { description: personality }
+      { name: name, description: personality }
     );
     console.log("Updated user successfully.");
+    res.status(200).json({ msg: "success" });
+  } catch (err) {
+    console.log("cannot find user");
+  }
+});
+
+app.get("/users", async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
   } catch (err) {
     console.log(err);
   }
