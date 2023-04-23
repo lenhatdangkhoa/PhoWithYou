@@ -65,7 +65,7 @@ export function Login(props) {
               />
             </label>
           </div>
-          <div className="signup">
+          <div className="signin">
             <Button buttonName="Sign In" />
           </div>
         </form>
