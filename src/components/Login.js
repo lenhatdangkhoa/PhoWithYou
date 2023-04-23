@@ -1,28 +1,42 @@
 import React from "react";
 import { useState } from "react";
 import { Button } from "./Button";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { MainPage } from "./MainPage";
 
+// khoale -> password: 123
 export function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(null);
+  const navigate = useNavigate();
 
-  function handleLogin(e) {
+  async function handleLogin(e) {
     e.preventDefault();
-
-    if (
-      document.getElementById("email").value === "gmr92094@uga.edu" &&
-      document.getElementById("password").value === "password123"
-    ) {
-      setIsLoggedIn(true);
+    try {
+      const response = await fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, password: password }),
+      });
+      const data = await response.json();
+      setUserId(data.user.id);
+      localStorage.setItem("token", data.token);
+      if (response.ok) setIsLoggedIn(true);
+      console.log(isLoggedIn);
+    } catch (err) {
+      console.log(err);
     }
   }
 
   if (isLoggedIn) {
-    return <Navigate to="/main-page" />;
+    console.log(userId);
+    //navigate("/main-page", { state: { userId } });
+    return <MainPage userId={userId} />;
   } else {
     return (
       <div className="logs">
@@ -45,7 +59,7 @@ export function Login(props) {
             <label>
               <input
                 type="text"
-                placeholder="Enter your email..." 
+                placeholder="Enter your email..."
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="emailBox"
@@ -57,7 +71,7 @@ export function Login(props) {
             <label>
               <input
                 type="text"
-                placeholder="Enter your password..." 
+                placeholder="Enter your password..."
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="passwordBox"

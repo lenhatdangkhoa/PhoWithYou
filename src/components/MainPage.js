@@ -1,18 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { User } from "./User";
 import "./MainPage.css";
 import { Button } from "./Button";
-import "./EditProfile.css";
 
 export function MainPage(props) {
-  const [users, setUsers] = useState([
-    { name: "user1", description: "none" },
-    { name: "user2", description: "none" },
-    { name: "user3", description: "none" },
-    { name: "user4", description: "none" },
-    { name: "user5", description: "none" },
-  ]);
+  const [users, setUsers] = useState([]);
+  const [userId, setUserId] = useState(props.userId);
   const [name, setName] = useState("");
   const [personality, setPersonality] = useState("");
   const [bio, setBio] = useState("");
@@ -20,7 +14,37 @@ export function MainPage(props) {
   function handleDelete(username) {
     setUsers(users.filter((user) => user.name !== username));
   }
-
+  useEffect(() => {
+    getUserList();
+  }, [edit]);
+  async function getUserList() {
+    try {
+      const response = await fetch("/users");
+      const users = await response.json();
+      setUsers(users);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async function handleClick() {
+    console.log(userId);
+    try {
+      const response = await fetch(`/users/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          //Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ name, personality }),
+      });
+      if (response.ok) {
+        setEdit(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  const token = localStorage.getItem("token");
   if (!edit) {
     return (
       <div className="MainPage">
@@ -46,11 +70,6 @@ export function MainPage(props) {
   } else {
     function handleSubmit(event) {
       event.preventDefault();
-    }
-    function handleClick() {
-      const newUser = { name: name, description: personality };
-      setUsers([...users, newUser]);
-      setEdit(false);
     }
     return (
       <div className="EditProfile">

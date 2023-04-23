@@ -2,15 +2,24 @@
   "name": "phowithyou",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
+    "buffer": "^6.0.3",
     "config": "^3.3.9",
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
+<<<<<<< HEAD
     "framer-motion": "^10.12.4",
+=======
+    "jsonwebtoken": "^9.0.0",
+    "mongodb": "^5.3.0",
+>>>>>>> 0d444a8860c15c9a9fe3409e0c7f8e447af175be
     "mongoose": "^7.0.4",
     "nodemon": "^2.0.22",
     "react": "^18.2.0",
