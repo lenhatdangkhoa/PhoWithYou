@@ -113,6 +113,7 @@ app.get("/users", async (req, res) => {
     console.log(err);
   }
 });
+
 // Structure of the user in the database
 const userSchema = new mongoose.Schema({
   email: {
