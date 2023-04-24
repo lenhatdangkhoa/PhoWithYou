@@ -4,6 +4,7 @@ import { Footer } from "./Footer";
 import { User } from "./User";
 import "./Home.css";
 import { Link } from "react-router-dom";
+import { CardLoop } from "./CardLoop";
 
 export function Home() {
   return (
@@ -31,10 +32,8 @@ export function Home() {
       </div>
       <div className="body">
         <h1 className="statement">"The best dating app ever" - Mai Kuchi</h1>
-        <h2 className="statement">Select your match</h2>
-        <User name="Khoa Le" description="Funny, Smart, Cool" />
-        <h2>and connect!</h2>
-        <User name="Gage Roney" description="White, Mustache, Cool" />
+        <h2 className="statement">Select your match and connect</h2>
+        <CardLoop className="loop"></CardLoop>
       </div>
       <Footer />
     </div>
