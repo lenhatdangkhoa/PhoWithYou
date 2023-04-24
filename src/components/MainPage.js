@@ -1,33 +1,59 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { User } from "./User";
 import "./MainPage.css";
 import { Button } from "./Button";
 
 export function MainPage(props) {
-  const [users, setUsers] = useState([
-    { name: "user1", description: "none" },
-    { name: "user2", description: "none" },
-    { name: "user3", description: "none" },
-    { name: "user4", description: "none" },
-    { name: "user5", description: "none" },
-  ]);
+  const [users, setUsers] = useState([]);
+  const [userId, setUserId] = useState(props.userId);
   const [name, setName] = useState("");
   const [personality, setPersonality] = useState("");
-  const [bio, setBio] = useState("");
-  const [edit, setEdit] = useState(false);
-  function handleDelete(username) {
-    setUsers(users.filter((user) => user.name !== username));
-  }
+  const [image, setImage] = useState(props.currentImage);
 
+  const [edit, setEdit] = useState(false);
+  async function handleDelete(userId) {
+    if (props.isAdmin) {
+      console.log(userId);
+      //setUsers(users.filter((user) => user.name !== username));
+    }
+  }
+  useEffect(() => {
+    getUserList();
+  }, [edit]);
+  async function getUserList() {
+    try {
+      const response = await fetch("/users");
+      const users = await response.json();
+      setUsers(users);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+  async function handleClick() {
+    try {
+      const response = await fetch(`/users/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({ name, personality, image }),
+      });
+      if (response.ok) {
+        setEdit(false);
+        console.log(response.image);
+        setImage(response.user.image);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
   if (!edit) {
     return (
       <div className="MainPage">
         <div className="heading">
-          <img
-            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-            alt="user-profile"
-          />
+          <img src={image} alt="user-profile" />
           <h1>Potential Matches</h1>
         </div>
         <h3 onClick={() => setEdit(true)}>Edit Profile</h3>
@@ -36,7 +62,8 @@ export function MainPage(props) {
             <User
               name={user.name}
               description={user.description}
-              onDelete={() => handleDelete(user.name)}
+              image={user.image}
+              onDelete={() => handleDelete(user._id)}
             />
           ))}
         </div>
@@ -46,20 +73,14 @@ export function MainPage(props) {
     function handleSubmit(event) {
       event.preventDefault();
     }
-    function handleClick() {
-      const newUser = { name: name, description: personality };
-      setUsers([...users, newUser]);
-      setEdit(false);
-    }
     return (
       <div className="EditProfile">
         <div className="formHeader">
           <h2>Edit Profile</h2>
         </div>
-        <img 
-          src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-          alt="userImage"
-        />
+        <label>
+          <img src={image} alt="userImage" />
+        </label>
         <form onSubmit={handleSubmit} className="editForm">
           <label>
             Name:
@@ -82,11 +103,11 @@ export function MainPage(props) {
           </label>
           <br />
           <label>
-            Bio:
-            <textarea
-              id="bio"
-              value={bio}
-              onChange={(event) => setBio(event.target.value)}
+            Link To Image:
+            <input
+              id="linkToImage"
+              value={image}
+              onChange={(event) => setImage(event.target.value)}
             />
           </label>
           <div className="doneButton">
