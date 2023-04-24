@@ -111,9 +111,12 @@ export function MainPage(props) {
               onChange={(event) => setImage(event.target.value)}
             />
           </label>
-          <br />
+          <div className="doneButton">
+            <Button buttonName="Done" onClick={() => handleClick()} />
+          </div>
+          
         </form>
-        <Button buttonName="Done" onClick={() => handleClick()} />
+        
       </div>
     );
   }
