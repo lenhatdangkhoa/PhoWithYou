@@ -3,7 +3,6 @@ import { useState } from "react";
 import { User } from "./User";
 import "./MainPage.css";
 import { Button } from "./Button";
-import "./EditProfile.css";
 
 export function MainPage(props) {
   const [users, setUsers] = useState([

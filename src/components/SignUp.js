@@ -8,6 +8,23 @@ export function SignUp(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  async function handleClick() {
+    try {
+      const response = await fetch("/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, password: password }),
+      });
+      if (!response.ok) {
+        console.log("error");
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div className="sgn">
       <form className="formSignUp">
@@ -26,32 +43,32 @@ export function SignUp(props) {
         <div className="formHeaderSignUp">
           <h1>Sign Up</h1>
         </div>
-          <div>
-            <label>
-              <input
-                type="text"
-                placeholder="Enter your email..."              
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className= "emailBox"
-              />
-            </label>
-          </div>
-          <div>
-            <label>
-              <input
-                type="text"
-                placeholder="Create a password..."   
-                value={password}
-                onChange={(e) => setPassword(e.target.value)} 
-                className= "passwordBox"
-              />
-            </label>
-          </div>
+        <div>
+          <label>
+            <input
+              type="text"
+              placeholder="Enter your email..."
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="emailBox"
+            />
+          </label>
+        </div>
+        <div>
+          <label>
+            <input
+              type="text"
+              placeholder="Create a password..."
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="passwordBox"
+            />
+          </label>
+        </div>
 
         <div className="signup">
           <Link to="/">
-            <Button buttonName="Sign Up" />
+            <Button buttonName="Sign Up" onClick={() => handleClick()} />
           </Link>
         </div>
       </form>
