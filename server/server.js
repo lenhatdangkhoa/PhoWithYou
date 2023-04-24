@@ -108,7 +108,21 @@ function verifyToken(req, res, next) {
 app.get("/users", async (req, res) => {
   try {
     const users = await User.find();
-    res.json(users);
+    return res.json(users);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+app.delete("/users/:id", async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const isDeleted = await User.findByIdAndDelete(userId);
+    if (!isDeleted) {
+      return res.status(400).json({ msg: "User Not Found" });
+    } else {
+      return res.status(200).json({ msg: "success" });
+    }
   } catch (err) {
     console.log(err);
   }

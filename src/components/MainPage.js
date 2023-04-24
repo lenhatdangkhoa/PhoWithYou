@@ -14,7 +14,12 @@ export function MainPage(props) {
   const [edit, setEdit] = useState(false);
   async function handleDelete(userId) {
     if (props.isAdmin) {
-      console.log(userId);
+      const response = await fetch(`/users/${userId}`, {
+        method: "DELETE",
+      });
+      if (response.ok) {
+        getUserList();
+      }
     } else {
       alert("You are not authorized to remove users. Admin Only!");
     }
@@ -43,7 +48,6 @@ export function MainPage(props) {
       });
       if (response.ok) {
         setEdit(false);
-        console.log(response.image);
         setImage(response.user.image);
       }
     } catch (err) {
@@ -114,9 +118,7 @@ export function MainPage(props) {
           <div className="doneButton">
             <Button buttonName="Done" onClick={() => handleClick()} />
           </div>
-          
         </form>
-        
       </div>
     );
   }
