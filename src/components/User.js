@@ -17,9 +17,6 @@ export function User(props) {
         <h2>{props.description}</h2>
       </div>
       <div className="marks">
-        <div className="YesMark">
-          <h2>✓</h2>
-        </div>
         <div className="NoMark" onClick={() => props.onDelete(props.name)}>
           <h2>✕</h2>
         </div>

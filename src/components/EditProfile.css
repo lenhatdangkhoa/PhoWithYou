@@ -1,0 +1,54 @@
+.EditProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  margin: 0%;
+  padding-bottom: 2%;
+  background-image: url(https://wallpaperaccess.com/full/2538402.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  background-position-x: fixed;
+}
+
+.formHeader {
+  font-family: "Dongle", "Times New Roman", Times, serif;
+  font-style: normal;
+  text-decoration: underline;
+  font-size: 4em;
+  margin-bottom: -5%;
+}
+.editForm {
+  display: flex;
+  flex-direction: column;
+  width: 25em;
+}
+.editForm label {
+  display: flex;
+  flex-direction: column;
+}
+#userName {
+  height: 2.5em;
+  border-radius: 15px;
+}
+#personality {
+  height: 2.5em;
+  border-radius: 15px;
+}
+#bio {
+  height: 10em;
+  border-radius: 15px;
+}
+.EditProfile img {
+  border-radius: 50%;
+  height: 10em;
+  margin-bottom: 3%;
+}
+.EditProfile img:hover {
+  border: dashed rgb(28, 163, 28);
+}
+.doneButton{
+  padding-top: 2%;
+  padding-left: 45%;
+}
