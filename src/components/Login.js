@@ -28,6 +28,9 @@ export function Login(props) {
         body: JSON.stringify({ email: email, password: password }),
       });
       const data = await response.json();
+      if (data.msg) {
+        alert(data.msg);
+      }
       setUserId(data.user.id);
       setIsAdmin(data.user.isAdmin);
       setUserImage(data.user.image);
@@ -75,7 +78,7 @@ export function Login(props) {
           <div>
             <label>
               <input
-                type="text"
+                type="password"
                 placeholder="Enter your password..."
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

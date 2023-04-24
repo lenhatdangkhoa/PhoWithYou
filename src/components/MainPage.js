@@ -15,7 +15,8 @@ export function MainPage(props) {
   async function handleDelete(userId) {
     if (props.isAdmin) {
       console.log(userId);
-      //setUsers(users.filter((user) => user.name !== username));
+    } else {
+      alert("You are not authorized to remove users. Admin Only!");
     }
   }
   useEffect(() => {

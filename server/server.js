@@ -23,6 +23,20 @@ mongoose
 
 app.post("/signup", async (req, res) => {
   const { email, password } = req.body;
+  const isExist = await User.findOne({ email });
+  if (!email || !password) {
+    return res.status(400).json({ msg: "Please enter all fields" });
+  }
+  if (isExist) {
+    return res
+      .status(400)
+      .json({ msg: "The user with this email is already existed" });
+  }
+  if (password.length < 6) {
+    return res
+      .status(400)
+      .json({ msg: "The password should have at least 6 characters" });
+  }
   const hashedPassword = await bcryptjs.hash(password, 8);
   const newUser = new User({ email: email, password: hashedPassword });
   await newUser.save();
@@ -32,6 +46,9 @@ app.post("/signup", async (req, res) => {
 app.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
+    if (!email || !password) {
+      return res.status(400).send({ msg: "Please enter all field" });
+    }
     const user = await User.findOne({ email });
     const isMatch = await bcryptjs.compare(password, user.password);
     let isAdmin = false;
@@ -58,7 +75,6 @@ app.post("/login", async (req, res) => {
   }
 });
 app.put("/users/:id", verifyToken, async (req, res) => {
-  console.log(req.body);
   const userId = req.params.id;
   const { name, personality, image } = req.body;
   try {
@@ -67,7 +83,6 @@ app.put("/users/:id", verifyToken, async (req, res) => {
       { name: name, description: personality, image: image }
     );
     console.log("Updated user successfully.");
-    console.log(image);
     res.status(200).json({ user });
   } catch (err) {
     console.log("cannot find user");
@@ -94,7 +109,6 @@ app.get("/users", async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
-    console.log(users);
   } catch (err) {
     console.log(err);
   }
@@ -117,9 +131,3 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model("User", userSchema);
-// const user = new User({
-//   name: "Test",
-//   username: "lekhoapro",
-//   password: "123",
-// });
-// user.save().then(() => console.log("Successfully saved to db"));

@@ -17,8 +17,9 @@ export function SignUp(props) {
         },
         body: JSON.stringify({ email: email, password: password }),
       });
-      if (!response.ok) {
-        console.log("error");
+      const data = await response.json();
+      if (data.msg) {
+        alert(data.msg);
       }
     } catch (err) {
       console.log(err);
@@ -57,7 +58,7 @@ export function SignUp(props) {
         <div>
           <label>
             <input
-              type="text"
+              type="password"
               placeholder="Create a password..."
               value={password}
               onChange={(e) => setPassword(e.target.value)}
