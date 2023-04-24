@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "./Button";
 import { Footer } from "./Footer";
-import { User } from "./User";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import { CardLoop } from "./CardLoop";
@@ -33,7 +32,9 @@ export function Home() {
       <div className="body">
         <h1 className="statement">"The best dating app ever" - Mai Kuchi</h1>
         <h2 className="statement">Select your match and connect</h2>
-        <CardLoop className="loop"></CardLoop>
+        <div className="loop">
+          <CardLoop className="loop"></CardLoop>
+        </div>
       </div>
       <Footer />
     </div>

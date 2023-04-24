@@ -29,7 +29,7 @@ export function CardLoop(props) {
     useEffect(() => {
         const interval = setInterval(() => {
           updateCard();
-        }, 2000);
+        }, 4000);
       
         return () => clearInterval(interval);
       });
