@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { User } from "./User";
+import { Link } from "react-router-dom";
 import "./MainPage.css";
 import { Button } from "./Button";
 import {motion} from "framer-motion"
@@ -58,16 +59,21 @@ export function MainPage(props) {
   if (!edit) {
     return (
       <motion.div 
-      className="MainPage"
+      className="mainPg"
       initial={{opacity: 0, width: 0}}
       animate={{opacity: 1, width: "100vw"}}
       exit={{opacity: 0, x: window.innerWidth, transition: {duration: 0.5}}}
-    >
+      >
         <div className="heading">
           <img src={image} alt="user-profile" />
-          <h1>Potential Matches</h1>
+          <h1 className="matches">Potential Matches</h1>
         </div>
-        <h3 onClick={() => setEdit(true)}>Edit Profile</h3>
+        <div className="logout">
+          <Link to="/">
+            <Button buttonName="Log Out"/>
+          </Link>
+        </div>
+        <h3 className="edit" onClick={() => setEdit(true)}>Edit Profile</h3>
         <div className="userList">
           {users.map((user) => (
             <User
