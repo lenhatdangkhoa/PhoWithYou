@@ -4,7 +4,7 @@ import "./User.css";
 
 export function User(props) {
 
-  const deleteButton = () => {
+  function deleteButton() {
     if (props.delete === true) {
       return () => props.onDelete(props.name);
     }
@@ -25,7 +25,7 @@ export function User(props) {
         <h2>{props.description}</h2>
       </div>
       <div className="marks">
-        <div className="NoMark" onClick={deleteButton}>        
+        <div className="NoMark" onClick={deleteButton()}>        
           <h2>✕</h2>
         </div>
       </div>
