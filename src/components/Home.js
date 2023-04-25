@@ -4,10 +4,16 @@ import { Footer } from "./Footer";
 import "./Home.css";
 import { Link } from "react-router-dom";
 import { CardLoop } from "./CardLoop";
+import {motion} from "framer-motion"
 
 export function Home() {
   return (
-    <div className="Home">
+    <motion.div 
+      className="Home"
+      initial={{opacity: 0, width: 0}}
+      animate={{opacity: 1, width: "100vw"}}
+      exit={{opacity: 0, x: window.innerWidth, transition: {duration: 0.5}}}
+    >
       <div className="header">
         <div className="logoName">
           <img
@@ -37,6 +43,6 @@ export function Home() {
         </div>
       </div>
       <Footer />
-    </div>
+    </motion.div>
   );
 }

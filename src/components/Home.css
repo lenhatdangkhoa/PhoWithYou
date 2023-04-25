@@ -29,7 +29,7 @@
   display: flex;
 }
 body {
-  background-color: #fab88f;
+  background-color: rgb(78, 78, 78);
 }
 
 .titleName > h1 {

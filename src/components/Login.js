@@ -4,6 +4,7 @@ import { Button } from "./Button";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { MainPage } from "./MainPage";
+import {motion} from "framer-motion"
 
 // khoale -> password: 123
 export function Login(props) {
@@ -43,11 +44,23 @@ export function Login(props) {
 
   if (isLoggedIn) {
     return (
-      <MainPage userId={userId} isAdmin={isAdmin} currentImage={userImage} />
+      <motion.div 
+        className="main"
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      >
+        <MainPage userId={userId} isAdmin={isAdmin} currentImage={userImage} />
+      </motion.div>
     );
   } else {
     return (
-      <div className="logs">
+      <motion.div 
+      className="logs"
+      initial={{opacity: 0, width: 0}}
+      animate={{opacity: 1, width: "100vw"}}
+      exit={{opacity: 0, x: window.innerWidth, transition: {duration: 0.5}}}
+    >
         <form onSubmit={handleLogin} className="formLogin">
           <div className="HomeButton">
             <Link to="/">
@@ -91,7 +104,7 @@ export function Login(props) {
             <Button buttonName="Sign In" />
           </div>
         </form>
-      </div>
+      </motion.div>
     );
   }
 }

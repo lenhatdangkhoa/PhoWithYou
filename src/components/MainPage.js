@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { User } from "./User";
 import "./MainPage.css";
 import { Button } from "./Button";
+import {motion} from "framer-motion"
 
 export function MainPage(props) {
   const [users, setUsers] = useState([]);
@@ -56,7 +57,12 @@ export function MainPage(props) {
   }
   if (!edit) {
     return (
-      <div className="MainPage">
+      <motion.div 
+      className="MainPage"
+      initial={{opacity: 0, width: 0}}
+      animate={{opacity: 1, width: "100vw"}}
+      exit={{opacity: 0, x: window.innerWidth, transition: {duration: 0.5}}}
+    >
         <div className="heading">
           <img src={image} alt="user-profile" />
           <h1>Potential Matches</h1>
@@ -72,14 +78,19 @@ export function MainPage(props) {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     );
   } else {
     function handleSubmit(event) {
       event.preventDefault();
     }
     return (
-      <div className="EditProfile">
+      <motion.div 
+      className="EditProfile"
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      >
         <div className="formHeader">
           <h2>Edit Profile</h2>
         </div>
@@ -119,7 +130,7 @@ export function MainPage(props) {
             <Button buttonName="Done" onClick={() => handleClick()} />
           </div>
         </form>
-      </div>
+      </motion.div>
     );
   }
 }
