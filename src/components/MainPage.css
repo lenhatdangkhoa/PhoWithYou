@@ -108,7 +108,7 @@
 }
 
 .logout{
-  position: fixed;
+  position: absolute;
   right: 0px;
   margin-right: 4%;
   margin-top: 1%;
