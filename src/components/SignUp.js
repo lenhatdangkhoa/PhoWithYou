@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./SignUp.css";
+import {motion} from "framer-motion"
 
 export function SignUp(props) {
   const [email, setEmail] = useState("");
@@ -27,7 +28,12 @@ export function SignUp(props) {
   }
 
   return (
-    <div className="sgn">
+    <motion.div 
+      className="sgn"
+      initial={{opacity: 0, width: 0}}
+      animate={{opacity: 1, width: "100vw"}}
+      exit={{opacity: 0, x: window.innerWidth, transition: {duration: 0.5}}}
+    >
       <form className="formSignUp">
         <div className="HomeButton">
           <Link to="/">
@@ -73,6 +79,6 @@ export function SignUp(props) {
           </Link>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 }

@@ -4,7 +4,7 @@ import "./User.css";
 
 export function User(props) {
   return (
-    <Card>
+    <Card className="card">
       <img
         src={
           props.image ||
