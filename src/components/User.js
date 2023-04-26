@@ -3,6 +3,14 @@ import { Card } from "./Card";
 import "./User.css";
 
 export function User(props) {
+
+  function deleteButton() {
+    if (props.delete === true) {
+      return () => props.onDelete(props.name);
+    }
+    return ;
+  }
+
   return (
     <Card className="card">
       <img
@@ -17,7 +25,7 @@ export function User(props) {
         <h2>{props.description}</h2>
       </div>
       <div className="marks">
-        <div className="NoMark" onClick={() => props.onDelete(props.name)}>
+        <div className="NoMark" onClick={deleteButton()}>        
           <h2>✕</h2>
         </div>
       </div>

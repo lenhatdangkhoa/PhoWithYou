@@ -80,6 +80,7 @@ export function MainPage(props) {
               name={user.name}
               description={user.description}
               image={user.image}
+              delete={true}
               onDelete={() => handleDelete(user._id)}
             />
           ))}

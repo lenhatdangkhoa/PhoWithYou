@@ -42,7 +42,7 @@ export function CardLoop(props) {
             initial={{scale:0.5}}
             animate={{scale: [1,1.1,1]}}
             transition={{duration:4, repeat: Infinity}}>
-            <User name={users[index].name} description={users[index].desc} />
+            <User name={users[index].name} description={users[index].desc} delete={false} />
         </motion.div>
 
     );
