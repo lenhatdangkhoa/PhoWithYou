@@ -1,5 +1,5 @@
 const dotenv = require("dotenv");
-dotenv.config();
+dotenv.config({ path: "./phowithyou/.env" });
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const express = require("express");
